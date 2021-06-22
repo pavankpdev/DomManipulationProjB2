@@ -33,7 +33,7 @@
 
     <title>Tasky</title>
   </head>
-  <body>
+  <body onload="loadInitialCardData()" >
     <!-- Modal -->
     <div
       class="modal fade"
@@ -172,37 +172,6 @@
       <!-- Cards -->
       <section>
         <div class="row task__container">
-          <div class="col-md-6 col-lg-4">
-            <div class="card">
-              <div class="card-header d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-outline-success">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button type="button" class="btn btn-outline-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </div>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrkepnNwLhK2kxt6KAfahr54IXeuK0_7GVOyY0dyeUlNudsGd1igSX_LfNfJyCsT-giA&usqp=CAU"
-                class="card-img-top"
-                alt="..."
-              />
-
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-              <div class="card-footer">
-                <button type="button" class="btn btn-outline-primary float-end">
-                  Open Task
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>

@@ -1,5 +1,7 @@
 const taskContainer = document.querySelector(".task__container");
 
+const globalStore = []; // some values []
+
 const generateNewCard = (taskData) => `
 <div class="col-md-6 col-lg-4" id=${taskData.id}>
 <div class="card">
@@ -33,6 +35,26 @@ const generateNewCard = (taskData) => `
 </div>
 `;
 
+const loadInitialCardData = () => {
+  // localstorage to get tasky card data
+  const getCardData = localStorage.getItem("tasky");
+
+  // convert from string to normal object
+  const {cards} = JSON.parse(getCardData);
+
+  // loop over those array of task object to create HTML card, inject it to DOM
+  cards.map((cardObject) => {
+
+    taskContainer.insertAdjacentHTML("beforeend", generateNewCard(cardObject));
+    
+    // update our globalStore
+    globalStore.push(cardObject);
+  })
+
+
+ 
+};
+
 const saveChanges = () => {
   const taskData = {
     id: `${Date.now()}`, // unique number for id
@@ -43,4 +65,22 @@ const saveChanges = () => {
   };
 
   taskContainer.insertAdjacentHTML("beforeend", generateNewCard(taskData));
+
+  globalStore.push(taskData);
+
+  localStorage.setItem("tasky", JSON.stringify({cards:globalStore})); // an object
+
+
 };
+
+
+// Issues
+
+// Page refresh will cause the data to be deleted -> localstorage -> 5MB
+
+
+
+// Features
+// Delete The card
+// Edit the card
+// Open the card
